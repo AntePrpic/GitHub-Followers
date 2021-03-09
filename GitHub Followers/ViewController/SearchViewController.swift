@@ -12,6 +12,10 @@ class SearchViewController: UIViewController {
     let logoImageView = UIImageView()
     let usernameTextField = GitHubTextField()
     let callToActionButton = GitHubButton(backgroundColor: .systemGreen, title: "Get Followers")
+    
+    var isUsernameEntered: Bool {
+        return !usernameTextField.text!.isEmpty
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,7 @@ class SearchViewController: UIViewController {
         configureLogoImageView()
         configureTextField()
         configureCallToActionButton()
+        createDismissKeyboardTapGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,12 +33,30 @@ class SearchViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
+    func createDismissKeyboardTapGesture() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func pushFollowerListViewController() {
+        
+        guard isUsernameEntered else { 
+            presentGitHubAlertOnMainThread(title: "Empty Username", message: "Please enter which user you want to stalk \n 😅", buttonTitle: "Ok")
+            return
+        }
+        let followerListViewController = FollowerListViewController()
+        followerListViewController.username = usernameTextField.text
+        followerListViewController.title = usernameTextField.text
+        navigationController?.pushViewController(followerListViewController, animated: true)
+    }
+    
+    // MARK: TODO: constants -> 50% done 9.3. @ 12:40
+    
     func configureLogoImageView() {
         view.addSubview(logoImageView)
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: "gh-logo")!
         
-        // TODO: - make it a constant
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.image = UIImage(named: K.logo)!
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
@@ -45,35 +68,34 @@ class SearchViewController: UIViewController {
     
     func configureTextField() {
         view.addSubview(usernameTextField)
+        usernameTextField.delegate = self
         
         NSLayoutConstraint.activate([
             usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 48),
-            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: K.button),
+            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -K.button),
             usernameTextField.heightAnchor.constraint(equalToConstant: 50)  // at least 44!
         ])
     }
     
     func configureCallToActionButton() {
         view.addSubview(callToActionButton)
+        callToActionButton.addTarget(self, action: #selector(pushFollowerListViewController), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             callToActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
+            callToActionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: K.button),
+            callToActionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -K.button),
             callToActionButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        pushFollowerListViewController()
+        return true
     }
-    */
-
+    
 }
