@@ -13,4 +13,6 @@ struct K {
     static let padding: CGFloat = 20
     
     static let logo: String = "gh-logo"
+    
+    static let apiUrl: String = "https://api.github.com"
 }

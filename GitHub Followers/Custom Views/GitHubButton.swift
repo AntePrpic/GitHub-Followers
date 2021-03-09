@@ -30,7 +30,7 @@ class GitHubButton: UIButton {
     
     private func configure() {
         layer.cornerRadius = 10
-        titleLabel?.textColor = .white
+        setTitleColor(.white, for: .normal)
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)    // aka bold
         translatesAutoresizingMaskIntoConstraints = false
 //        Needs to be set to false when:
