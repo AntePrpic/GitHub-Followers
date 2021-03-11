@@ -16,7 +16,10 @@
 		EF6CA84225F7AB4200101412 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA84125F7AB4200101412 /* Follower.swift */; };
 		EF6CA84725F7AE5C00101412 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA84625F7AE5C00101412 /* User.swift */; };
 		EF6CA84B25F7D15300101412 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA84A25F7D15300101412 /* NetworkManager.swift */; };
-		EF6CA84E25F7DAF000101412 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA84D25F7DAF000101412 /* ErrorMessage.swift */; };
+		EF6CA85125FA244200101412 /* GitHubError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA85025FA244200101412 /* GitHubError.swift */; };
+		EF6CA85525FA27C200101412 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA85425FA27C200101412 /* FollowerCell.swift */; };
+		EF6CA85A25FA284400101412 /* GitHubAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA85925FA284400101412 /* GitHubAvatarImageView.swift */; };
+		EF6CA85E25FA4C2600101412 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA85D25FA4C2600101412 /* UIHelper.swift */; };
 		EF6F2C1525F6855E00058310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C1425F6855E00058310 /* AppDelegate.swift */; };
 		EF6F2C1725F6855E00058310 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C1625F6855E00058310 /* SceneDelegate.swift */; };
 		EF6F2C1E25F6855E00058310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6F2C1D25F6855E00058310 /* Assets.xcassets */; };
@@ -37,7 +40,10 @@
 		EF6CA84125F7AB4200101412 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		EF6CA84625F7AE5C00101412 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EF6CA84A25F7D15300101412 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		EF6CA84D25F7DAF000101412 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		EF6CA85025FA244200101412 /* GitHubError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubError.swift; sourceTree = "<group>"; };
+		EF6CA85425FA27C200101412 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
+		EF6CA85925FA284400101412 /* GitHubAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAvatarImageView.swift; sourceTree = "<group>"; };
+		EF6CA85D25FA4C2600101412 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		EF6F2C1125F6855E00058310 /* GitHub Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF6F2C1425F6855E00058310 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF6F2C1625F6855E00058310 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,8 +70,10 @@
 		EF6CA83825F7A70600101412 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF6CA85725FA27C600101412 /* Cells */,
 				EF6CA82A25F780D700101412 /* GitHubAlertViewController.swift */,
 				EF6F2C3425F691B400058310 /* GitHubButton.swift */,
+				EF6CA85925FA284400101412 /* GitHubAvatarImageView.swift */,
 				EF6F2C3725F6966400058310 /* GitHubTextField.swift */,
 				EF6CA82725F77FFD00101412 /* GitHubBodyLabel.swift */,
 				EF6CA82425F77EAF00101412 /* GitHubTitleLabel.swift */,
@@ -87,7 +95,8 @@
 				EF6F2C1425F6855E00058310 /* AppDelegate.swift */,
 				EF6F2C1625F6855E00058310 /* SceneDelegate.swift */,
 				EF6CA83425F7951E00101412 /* K.swift */,
-				EF6CA84D25F7DAF000101412 /* ErrorMessage.swift */,
+				EF6CA85025FA244200101412 /* GitHubError.swift */,
+				EF6CA85D25FA4C2600101412 /* UIHelper.swift */,
 				EF6CA84425F7ADD600101412 /* Model */,
 				EF6F2C1D25F6855E00058310 /* Assets.xcassets */,
 				EF6F2C1F25F6855E00058310 /* LaunchScreen.storyboard */,
@@ -103,6 +112,14 @@
 				EF6CA84625F7AE5C00101412 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EF6CA85725FA27C600101412 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EF6CA85425FA27C200101412 /* FollowerCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		EF6F2C0825F6855D00058310 = {
@@ -216,15 +233,18 @@
 				EF6F2C3525F691B400058310 /* GitHubButton.swift in Sources */,
 				EF6CA82825F77FFD00101412 /* GitHubBodyLabel.swift in Sources */,
 				EF6CA82F25F7865100101412 /* UIViewController+Ext.swift in Sources */,
+				EF6CA85A25FA284400101412 /* GitHubAvatarImageView.swift in Sources */,
 				EF6F2C3825F6966400058310 /* GitHubTextField.swift in Sources */,
 				EF6CA83525F7951E00101412 /* K.swift in Sources */,
 				EF6CA84725F7AE5C00101412 /* User.swift in Sources */,
+				EF6CA85525FA27C200101412 /* FollowerCell.swift in Sources */,
 				EF6CA82B25F780D700101412 /* GitHubAlertViewController.swift in Sources */,
 				EF6CA84225F7AB4200101412 /* Follower.swift in Sources */,
 				EF6CA82125F76E6C00101412 /* FollowerListViewController.swift in Sources */,
 				EF6F2C2C25F689B800058310 /* SearchViewController.swift in Sources */,
+				EF6CA85125FA244200101412 /* GitHubError.swift in Sources */,
 				EF6F2C3025F689F700058310 /* FavoritesViewController.swift in Sources */,
-				EF6CA84E25F7DAF000101412 /* ErrorMessage.swift in Sources */,
+				EF6CA85E25FA4C2600101412 /* UIHelper.swift in Sources */,
 				EF6CA84B25F7D15300101412 /* NetworkManager.swift in Sources */,
 				EF6CA82525F77EAF00101412 /* GitHubTitleLabel.swift in Sources */,
 				EF6F2C1725F6855E00058310 /* SceneDelegate.swift in Sources */,
