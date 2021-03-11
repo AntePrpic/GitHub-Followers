@@ -5,12 +5,14 @@
 //  Created by Ante on 09.03.2021..
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     // create the singleton --> every network manager will have access to it
     static let shared = NetworkManager()
-    let baseURL = K.apiUrl
+    private let baseURL = K.apiUrl
+    let cache = NSCache<NSString, UIImage>()
+    //var followersPerPage: Int?
     
     private init() {}
     
@@ -44,6 +46,7 @@ class NetworkManager {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let followers = try decoder.decode([Follower].self, from: data)
+                //self.followersPerPage = followers.count
                 //completed(followers, nil)
                 completed(.success(followers))
             } catch {

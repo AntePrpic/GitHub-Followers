@@ -97,7 +97,6 @@
 				EF6CA83425F7951E00101412 /* K.swift */,
 				EF6CA85025FA244200101412 /* GitHubError.swift */,
 				EF6CA85D25FA4C2600101412 /* UIHelper.swift */,
-				EF6CA84425F7ADD600101412 /* Model */,
 				EF6F2C1D25F6855E00058310 /* Assets.xcassets */,
 				EF6F2C1F25F6855E00058310 /* LaunchScreen.storyboard */,
 			);
@@ -141,6 +140,7 @@
 		EF6F2C1325F6855E00058310 /* GitHub Followers */ = {
 			isa = PBXGroup;
 			children = (
+				EF6CA84425F7ADD600101412 /* Model */,
 				EF6CA83B25F7A78800101412 /* Support */,
 				EF6F2C3225F689FD00058310 /* ViewController */,
 				EF6CA83825F7A70600101412 /* Custom Views */,

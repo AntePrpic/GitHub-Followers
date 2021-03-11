@@ -10,6 +10,7 @@ import UIKit
 class GitHubAvatarImageView: UIImageView {
     
     let placeholderImage = UIImage(named: "avatar-placeholder")
+    let cache = NetworkManager.shared.cache
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,6 +31,13 @@ class GitHubAvatarImageView: UIImageView {
     }
     
     func downloadImage(from urlString: String) {
+        let cacheKey = NSString(string: urlString)
+        
+        if let image = cache.object(forKey: cacheKey) {
+            self.image = image
+            return  // exit the function if it's in the cache
+        }
+        
         guard let url = URL(string: urlString) else { return }  // using placeholder image as "error"
         
         let task = URLSession.shared.dataTask(with: url) { [weak self](data, response, error) in
@@ -39,6 +47,7 @@ class GitHubAvatarImageView: UIImageView {
             guard let data = data else { return }
             
             guard let image = UIImage(data: data) else { return }
+            self.cache.setObject(image, forKey: cacheKey)
             
             // UI updating always on MAIN thread
             DispatchQueue.main.async {
@@ -49,3 +58,4 @@ class GitHubAvatarImageView: UIImageView {
     }
     
 }
+
