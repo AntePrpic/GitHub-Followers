@@ -28,6 +28,7 @@
 		EF6F2C3025F689F700058310 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C2F25F689F700058310 /* FavoritesViewController.swift */; };
 		EF6F2C3525F691B400058310 /* GitHubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C3425F691B400058310 /* GitHubButton.swift */; };
 		EF6F2C3825F6966400058310 /* GitHubTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C3725F6966400058310 /* GitHubTextField.swift */; };
+		EFF5068325FB6401000FC250 /* GitHubEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		EF6F2C2F25F689F700058310 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		EF6F2C3425F691B400058310 /* GitHubButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubButton.swift; sourceTree = "<group>"; };
 		EF6F2C3725F6966400058310 /* GitHubTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubTextField.swift; sourceTree = "<group>"; };
+		EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				EF6F2C3725F6966400058310 /* GitHubTextField.swift */,
 				EF6CA82725F77FFD00101412 /* GitHubBodyLabel.swift */,
 				EF6CA82425F77EAF00101412 /* GitHubTitleLabel.swift */,
+				EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				EF6CA84B25F7D15300101412 /* NetworkManager.swift in Sources */,
 				EF6CA82525F77EAF00101412 /* GitHubTitleLabel.swift in Sources */,
 				EF6F2C1725F6855E00058310 /* SceneDelegate.swift in Sources */,
+				EFF5068325FB6401000FC250 /* GitHubEmptyStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
