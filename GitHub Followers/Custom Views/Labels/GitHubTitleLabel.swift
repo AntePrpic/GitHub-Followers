@@ -18,19 +18,19 @@ class GitHubTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+    init(fontSize: CGFloat, textAlignment: NSTextAlignment = .center, textColor: UIColor = .label, weight: UIFont.Weight = .medium) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
+        self.textColor = textColor
         
         configure()
     }
     
     private func configure() {
-        textColor = .label
         adjustsFontSizeToFitWidth = true    // shrink to fit
         minimumScaleFactor = 0.9
-        lineBreakMode = .byTruncatingTail // too big --> loooongusernam...
+        lineBreakMode = .byTruncatingTail
         translatesAutoresizingMaskIntoConstraints = false
     }
     

@@ -9,7 +9,7 @@ import UIKit
 
 class GitHubEmptyStateView: UIView {
 
-    let messageLabel = GitHubTitleLabel(textAlignment: .center, fontSize: 28)
+    let messageLabel = GitHubTitleLabel(fontSize: 28, textAlignment: .center)
     let logoImageView = UIImageView()
     
     override init(frame: CGRect) {

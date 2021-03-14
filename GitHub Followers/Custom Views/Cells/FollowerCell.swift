@@ -11,7 +11,7 @@ class FollowerCell: UICollectionViewCell {
     static let reuseID = "FollowerCell" // don't forget it!!!
     
     let avatarImageView = GitHubAvatarImageView(frame: .zero)
-    let usernameLabel = GitHubTitleLabel(textAlignment: .center, fontSize: 16)
+    let usernameLabel = GitHubTitleLabel(fontSize: 16, textAlignment: .center)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

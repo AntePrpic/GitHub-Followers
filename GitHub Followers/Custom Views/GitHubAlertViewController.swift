@@ -12,9 +12,9 @@ import UIKit
 class GitHubAlertViewController: UIViewController {
     
     let containerView = UIView()
-    let titleLabel = GitHubTitleLabel(textAlignment: .center, fontSize: 20)
-    let bodyLabel = GitHubBodyLabel(textAlignment: .center)
-    let actionButton = GitHubButton(backgroundColor: .systemPink, title: "Ok")
+    let titleLabel = GitHubTitleLabel(fontSize: 20, textAlignment: .center)
+    let bodyLabel = GitHubBodyLabel(textAlignment: .center, style: .body, textColor: .secondaryLabel)
+    let actionButton = GitHubButton(backgroundColor: .systemPink, title: "OK")
 
     var alertTitle: String?
     var message: String?
