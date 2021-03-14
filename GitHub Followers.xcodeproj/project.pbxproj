@@ -29,6 +29,8 @@
 		EF6F2C3525F691B400058310 /* GitHubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C3425F691B400058310 /* GitHubButton.swift */; };
 		EF6F2C3825F6966400058310 /* GitHubTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C3725F6966400058310 /* GitHubTextField.swift */; };
 		EFF5068325FB6401000FC250 /* GitHubEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */; };
+		EFF5068825FCB902000FC250 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5068725FCB902000FC250 /* UserInfoViewController.swift */; };
+		EFF5068B25FE1A47000FC250 /* GitHubUserHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5068A25FE1A47000FC250 /* GitHubUserHeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		EF6F2C3425F691B400058310 /* GitHubButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubButton.swift; sourceTree = "<group>"; };
 		EF6F2C3725F6966400058310 /* GitHubTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubTextField.swift; sourceTree = "<group>"; };
 		EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEmptyStateView.swift; sourceTree = "<group>"; };
+		EFF5068725FCB902000FC250 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		EFF5068A25FE1A47000FC250 /* GitHubUserHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserHeaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +78,11 @@
 			children = (
 				EF6CA85725FA27C600101412 /* Cells */,
 				EF6CA82A25F780D700101412 /* GitHubAlertViewController.swift */,
+				EFF5068A25FE1A47000FC250 /* GitHubUserHeaderViewController.swift */,
 				EF6F2C3425F691B400058310 /* GitHubButton.swift */,
 				EF6CA85925FA284400101412 /* GitHubAvatarImageView.swift */,
 				EF6F2C3725F6966400058310 /* GitHubTextField.swift */,
-				EF6CA82725F77FFD00101412 /* GitHubBodyLabel.swift */,
-				EF6CA82425F77EAF00101412 /* GitHubTitleLabel.swift */,
+				EFF5068D25FE26CB000FC250 /* Labels */,
 				EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */,
 			);
 			path = "Custom Views";
@@ -157,10 +161,20 @@
 			isa = PBXGroup;
 			children = (
 				EF6F2C2B25F689B800058310 /* SearchViewController.swift */,
+				EFF5068725FCB902000FC250 /* UserInfoViewController.swift */,
 				EF6CA82025F76E6C00101412 /* FollowerListViewController.swift */,
 				EF6F2C2F25F689F700058310 /* FavoritesViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EFF5068D25FE26CB000FC250 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				EF6CA82725F77FFD00101412 /* GitHubBodyLabel.swift */,
+				EF6CA82425F77EAF00101412 /* GitHubTitleLabel.swift */,
+			);
+			path = Labels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF6F2C1525F6855E00058310 /* AppDelegate.swift in Sources */,
+				EFF5068825FCB902000FC250 /* UserInfoViewController.swift in Sources */,
 				EF6F2C3525F691B400058310 /* GitHubButton.swift in Sources */,
 				EF6CA82825F77FFD00101412 /* GitHubBodyLabel.swift in Sources */,
 				EF6CA82F25F7865100101412 /* UIViewController+Ext.swift in Sources */,
@@ -242,6 +257,7 @@
 				EF6CA84725F7AE5C00101412 /* User.swift in Sources */,
 				EF6CA85525FA27C200101412 /* FollowerCell.swift in Sources */,
 				EF6CA82B25F780D700101412 /* GitHubAlertViewController.swift in Sources */,
+				EFF5068B25FE1A47000FC250 /* GitHubUserHeaderViewController.swift in Sources */,
 				EF6CA84225F7AB4200101412 /* Follower.swift in Sources */,
 				EF6CA82125F76E6C00101412 /* FollowerListViewController.swift in Sources */,
 				EF6F2C2C25F689B800058310 /* SearchViewController.swift in Sources */,

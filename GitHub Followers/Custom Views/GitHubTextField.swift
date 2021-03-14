@@ -33,7 +33,7 @@ class GitHubTextField: UITextField {
         adjustsFontSizeToFitWidth = true // long username == shrink font
         minimumFontSize = 12
         
-        backgroundColor = .tertiarySystemBackground
+        backgroundColor = .tertiarySystemBackground // dark mode slightly less dark
         autocorrectionType = .no
 //        keyboardType = .default
         returnKeyType = .go

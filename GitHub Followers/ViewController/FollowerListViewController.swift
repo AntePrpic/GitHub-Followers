@@ -33,13 +33,14 @@ class FollowerListViewController: UIViewController {
         configureSearchController()
         getFollowers(username: username, page: page)
         configureDataSource()
-            }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
-    func configureViewController() {
+    private func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -124,6 +125,16 @@ extension FollowerListViewController: UICollectionViewDelegate {
             getFollowers(username: username, page: page)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let follower = dataSource.itemIdentifier(for: indexPath)
+        let destinationVC = UserInfoViewController()
+        destinationVC.username = follower?.login
+        let navigationController = UINavigationController(rootViewController: destinationVC)
+        
+        present(navigationController, animated: true)
+    }
+    
 }
 
 extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
