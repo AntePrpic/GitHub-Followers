@@ -13,6 +13,8 @@
 		EF4B3B7825FF5CA9007C82F5 /* GitHubFollowerItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B3B7725FF5CA9007C82F5 /* GitHubFollowerItemVC.swift */; };
 		EF4B3B7E25FF5ED6007C82F5 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B3B7D25FF5ED6007C82F5 /* Date+Ext.swift */; };
 		EF4B3B8125FF60F2007C82F5 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B3B8025FF60F2007C82F5 /* String+Ext.swift */; };
+		EF4B3B8525FFABD1007C82F5 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B3B8425FFABD1007C82F5 /* PersistanceManager.swift */; };
+		EF4B3B8B25FFB80B007C82F5 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B3B8A25FFB80B007C82F5 /* FavoriteCell.swift */; };
 		EF6CA82125F76E6C00101412 /* FollowerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA82025F76E6C00101412 /* FollowerListViewController.swift */; };
 		EF6CA82525F77EAF00101412 /* GitHubTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA82425F77EAF00101412 /* GitHubTitleLabel.swift */; };
 		EF6CA82825F77FFD00101412 /* GitHubBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6CA82725F77FFD00101412 /* GitHubBodyLabel.swift */; };
@@ -46,6 +48,8 @@
 		EF4B3B7725FF5CA9007C82F5 /* GitHubFollowerItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowerItemVC.swift; sourceTree = "<group>"; };
 		EF4B3B7D25FF5ED6007C82F5 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		EF4B3B8025FF60F2007C82F5 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		EF4B3B8425FFABD1007C82F5 /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		EF4B3B8A25FFB80B007C82F5 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		EF6CA82025F76E6C00101412 /* FollowerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListViewController.swift; sourceTree = "<group>"; };
 		EF6CA82425F77EAF00101412 /* GitHubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubTitleLabel.swift; sourceTree = "<group>"; };
 		EF6CA82725F77FFD00101412 /* GitHubBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubBodyLabel.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 			children = (
 				EF6CA84125F7AB4200101412 /* Follower.swift */,
 				EF6CA84A25F7D15300101412 /* NetworkManager.swift */,
+				EF4B3B8425FFABD1007C82F5 /* PersistanceManager.swift */,
 				EF6CA84625F7AE5C00101412 /* User.swift */,
 			);
 			path = Model;
@@ -166,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				EF6CA85425FA27C200101412 /* FollowerCell.swift */,
+				EF4B3B8A25FFB80B007C82F5 /* FavoriteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -292,6 +298,7 @@
 				EF6F2C1525F6855E00058310 /* AppDelegate.swift in Sources */,
 				EF4B3B6C25FF4B73007C82F5 /* GitHubItemInfoView.swift in Sources */,
 				EF4B3B6F25FF4E0B007C82F5 /* GitHubItemInfoViewController.swift in Sources */,
+				EF4B3B8525FFABD1007C82F5 /* PersistanceManager.swift in Sources */,
 				EF4B3B7325FF5AB5007C82F5 /* GitHubRepoItemVC.swift in Sources */,
 				EFF5068825FCB902000FC250 /* UserInfoViewController.swift in Sources */,
 				EF6F2C3525F691B400058310 /* GitHubButton.swift in Sources */,
@@ -300,6 +307,7 @@
 				EF6CA85A25FA284400101412 /* GitHubAvatarImageView.swift in Sources */,
 				EF6F2C3825F6966400058310 /* GitHubTextField.swift in Sources */,
 				EF6CA83525F7951E00101412 /* K.swift in Sources */,
+				EF4B3B8B25FFB80B007C82F5 /* FavoriteCell.swift in Sources */,
 				EF6CA84725F7AE5C00101412 /* User.swift in Sources */,
 				EF6CA85525FA27C200101412 /* FollowerCell.swift in Sources */,
 				EF6CA82B25F780D700101412 /* GitHubAlertViewController.swift in Sources */,
