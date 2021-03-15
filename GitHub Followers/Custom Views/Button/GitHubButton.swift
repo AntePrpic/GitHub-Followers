@@ -39,4 +39,9 @@ class GitHubButton: UIButton {
 //        And the view will be added to a view hierarchy that is using auto layout
     }
     
+    func set(backgroundColor: UIColor, title: String) {
+        self.backgroundColor = backgroundColor
+        self.setTitle(title, for: .normal)
+    }
+    
 }

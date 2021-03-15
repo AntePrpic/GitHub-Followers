@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import SafariServices
+
+protocol UserInfoViewControllerDelegate: class {
+    func didTapGitHubProfile(for user: User)
+    func didTapGetFollowers(for user: User)
+}
 
 class UserInfoViewController: UIViewController {
     
     var username: String!
+    weak var delegate: FollowerListViewControllerDelegate!
 
     var itemViews = [UIView]()
     let headerView = UIView()
     let itemViewOne = UIView()
     let itemViewTwo = UIView()
-
+    let dateLabel = GitHubBodyLabel(textAlignment: .center)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -34,12 +42,26 @@ class UserInfoViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let user):
-                DispatchQueue.main.async {
-                    self.add(childVC: GitHubUserHeaderViewController(user: user), to: self.headerView)
-                }
+                DispatchQueue.main.async { self.configureUI(user) }
             case .failure(_):
                 self.presentGitHubAlertOnMainThread(title: "Something went wrong", message: "Error.rawValue", buttonTitle: "OK")
             }
+        }
+    }
+    
+    func configureUI(_ user: User) {
+        DispatchQueue.main.async {
+            self.add(childVC: GitHubUserHeaderViewController(user: user), to: self.headerView)
+            
+            let repoItemVC = GitHubRepoItemVC(user: user)
+            repoItemVC.delegate = self      // 1st add it to the superclass VC
+            
+            let followerItemVC = GitHubFollowerItemVC(user: user)
+            followerItemVC.delegate = self
+            
+            self.add(childVC: repoItemVC, to: self.itemViewOne)
+            self.add(childVC: followerItemVC, to: self.itemViewTwo)
+            self.dateLabel.text = "User since \(user.createdAt.convertToDisplay())"
         }
     }
     
@@ -48,7 +70,7 @@ class UserInfoViewController: UIViewController {
     }
 
     func layoutUI() {
-        itemViews = [headerView, itemViewOne, itemViewTwo]
+        itemViews = [headerView, itemViewOne, itemViewTwo, dateLabel]
         
         for itemView in itemViews {
             view.addSubview(itemView)
@@ -57,8 +79,6 @@ class UserInfoViewController: UIViewController {
         
         let padding: CGFloat = 20
         
-        itemViewOne.backgroundColor = .systemPink
-        itemViewTwo.backgroundColor = .systemOrange
                 
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -74,7 +94,12 @@ class UserInfoViewController: UIViewController {
             itemViewTwo.topAnchor.constraint(equalTo: itemViewOne.bottomAnchor,  constant: padding),
             itemViewTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             itemViewTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor,  constant: -padding),
-            itemViewTwo.heightAnchor.constraint(equalToConstant: 140)
+            itemViewTwo.heightAnchor.constraint(equalToConstant: 140),
+            
+            dateLabel.topAnchor.constraint(equalTo: itemViewTwo.bottomAnchor, constant: padding),
+            dateLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+            dateLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+            dateLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     
@@ -85,4 +110,22 @@ class UserInfoViewController: UIViewController {
         childVC.didMove(toParent: self)
     }
 
+}
+
+extension UserInfoViewController: UserInfoViewControllerDelegate {
+    func didTapGitHubProfile(for user: User) {
+        guard let url = URL(string: user.htmlUrl) else {
+            presentGitHubAlertOnMainThread(title: "Invalid url", message: "URL doesn't work :(", buttonTitle: "OK")
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.preferredControlTintColor = .systemGreen
+        present(safariVC, animated: true)
+    }
+    
+    func didTapGetFollowers(for user: User) {
+        delegate.didRequestFollowers(for: user.login)
+    }
+    
+    
 }

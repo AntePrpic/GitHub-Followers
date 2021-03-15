@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FollowerListViewControllerDelegate: class {
+    func didRequestFollowers(for username: String)
+}
+
 // we can get here either by tapping the go button or tapping anywhere outside the textField
 
 class FollowerListViewController: UIViewController {
@@ -130,8 +134,9 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let follower = dataSource.itemIdentifier(for: indexPath)
         let destinationVC = UserInfoViewController()
         destinationVC.username = follower?.login
-        let navigationController = UINavigationController(rootViewController: destinationVC)
+        destinationVC.delegate = self
         
+        let navigationController = UINavigationController(rootViewController: destinationVC)
         present(navigationController, animated: true)
     }
     
@@ -148,4 +153,20 @@ extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelega
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         updateData(followers)
     }
+}
+
+extension FollowerListViewController: FollowerListViewControllerDelegate {
+    func didRequestFollowers(for username: String) {
+        // get followers for a specific user
+        self.username = username
+        title = username
+        page = 1
+        followers.removeAll()
+        filteredFollowers.removeAll()
+        //collectionView.setContentOffset(.zero, animated: true)  // scroll up to the top
+        updateData(followers)
+        getFollowers(username: username, page: page)
+    }
+    
+    
 }
