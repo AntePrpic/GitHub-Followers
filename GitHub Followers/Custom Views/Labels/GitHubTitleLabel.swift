@@ -18,13 +18,12 @@ class GitHubTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(fontSize: CGFloat, textAlignment: NSTextAlignment = .center, textColor: UIColor = .label, weight: UIFont.Weight = .medium) {
-        super.init(frame: .zero)
+    // convenience --> you don't have to call configure again here, you just call self.init
+    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment = .center, textColor: UIColor = .label, weight: UIFont.Weight = .medium) {
+        self.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
         self.textColor = textColor
-        
-        configure()
     }
     
     private func configure() {

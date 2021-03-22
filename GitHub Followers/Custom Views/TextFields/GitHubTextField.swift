@@ -36,6 +36,7 @@ class GitHubTextField: UITextField {
         backgroundColor = .tertiarySystemBackground // dark mode slightly less dark
         autocorrectionType = .no
 //        keyboardType = .default
+        clearButtonMode = .whileEditing
         returnKeyType = .go
         
         placeholder = "Enter a username"

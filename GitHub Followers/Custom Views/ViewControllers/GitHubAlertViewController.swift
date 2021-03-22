@@ -35,7 +35,7 @@ class GitHubAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         configureContainerView()
         configureTitleLabel()
         configureActionButton()
@@ -50,13 +50,6 @@ class GitHubAlertViewController: UIViewController {
         containerView.layer.borderWidth = 2 // need for dark mode
         containerView.layer.borderColor = UIColor.white.cgColor
         containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        NSLayoutConstraint.activate([
-//            containerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
-//            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-//            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-//            containerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -200)
-//        ])
         
         NSLayoutConstraint.activate([
             containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),

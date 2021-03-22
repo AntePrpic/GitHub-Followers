@@ -18,5 +18,5 @@ struct User: Codable, Hashable {
     var publicGists: Int
     var following: Int
     var followers: Int
-    let createdAt: String
+    let createdAt: Date
 }

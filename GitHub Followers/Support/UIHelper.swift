@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct UIHelper {
+enum UIHelper {
     
     // Does my ViewController need to know about this? NO -> move!
     

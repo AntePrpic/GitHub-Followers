@@ -34,29 +34,25 @@ class SearchViewController: UIViewController {
     }
     
     func createDismissKeyboardTapGesture() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
     
     @objc func pushFollowerListViewController() {
-        
         guard isUsernameEntered else { 
             presentGitHubAlertOnMainThread(title: "Empty Username", message: "Please enter which user you want to stalk \n 😅", buttonTitle: "Ok")
             return
         }
-        let followerListViewController = FollowerListViewController()
-        followerListViewController.username = usernameTextField.text
-        followerListViewController.title = usernameTextField.text
+        
+        let followerListViewController = FollowerListViewController(username: usernameTextField.text!)
         navigationController?.pushViewController(followerListViewController, animated: true)
     }
-    
-    // MARK: TODO: constants -> 50% done 9.3. @ 12:40
-    
+        
     func configureLogoImageView() {
         view.addSubview(logoImageView)
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.image = UIImage(named: K.logo)!
+        logoImageView.image = Images.ghLogo
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),

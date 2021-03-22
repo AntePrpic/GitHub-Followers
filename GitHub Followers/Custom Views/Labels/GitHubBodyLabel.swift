@@ -19,16 +19,12 @@ class GitHubBodyLabel: UILabel {
     }
     
     // Use dynamic fonts
-    init(textAlignment: NSTextAlignment? = .center, style: UIFont.TextStyle? = .body, textColor: UIColor? = .label, lineBreakMode: NSLineBreakMode? = .byWordWrapping) {
-        super.init(frame: .zero)
+    convenience init(textAlignment: NSTextAlignment? = .center, style: UIFont.TextStyle? = .body, textColor: UIColor? = .label, lineBreakMode: NSLineBreakMode? = .byWordWrapping) {
+        self.init(frame: .zero)
         self.textAlignment = textAlignment!
         self.font = UIFont.preferredFont(forTextStyle: style!)
         self.textColor = textColor!
         self.lineBreakMode = lineBreakMode!
-        // .byTruncatingTail
-        // too big --> loooongusernam...
-        
-        configure()
     }
     
     private func configure() {

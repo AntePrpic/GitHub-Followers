@@ -13,7 +13,7 @@ protocol UserInfoViewControllerDelegate: class {
     func didTapGetFollowers(for user: User)
 }
 
-class UserInfoViewController: UIViewController {
+class UserInfoViewController: GitHubDataLoadingViewController {
     
     var username: String!
     weak var delegate: FollowerListViewControllerDelegate!
@@ -61,7 +61,7 @@ class UserInfoViewController: UIViewController {
             
             self.add(childVC: repoItemVC, to: self.itemViewOne)
             self.add(childVC: followerItemVC, to: self.itemViewTwo)
-            self.dateLabel.text = "User since \(user.createdAt.convertToDisplay())"
+            self.dateLabel.text = "User since \(user.createdAt.convertToMonthYearFormat())"
         }
     }
     

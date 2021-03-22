@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+class FavoritesViewController: GitHubDataLoadingViewController {
     
     let tableView               = UITableView()
     var favorites: [Follower]   = []
@@ -71,16 +71,14 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: FavoriteCell.reuseID) as! FavoriteCell
         let favorite = favorites[indexPath.row]
-        cell.set(favorite: favorite)
+        cell.set(follower: favorite)
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let favorite = favorites[indexPath.row]
-        let destVC      = FollowerListViewController()
-        destVC.username = favorite.login
-        destVC.title    = favorite.login
+        let destVC = FollowerListViewController(username: favorite.login)
         
         navigationController?.pushViewController(destVC, animated: true)
     }

@@ -13,22 +13,31 @@ protocol FollowerListViewControllerDelegate: class {
 
 // we can get here either by tapping the go button or tapping anywhere outside the textField
 
-class FollowerListViewController: UIViewController {
+class FollowerListViewController: GitHubDataLoadingViewController {
     
     // Hashable by default
-    enum Section {
-        case main
-    }
+    enum Section { case main }
     
     var username: String!
     var followers = [Follower]()
     var filteredFollowers = [Follower]()
     var page = 1
     var hasMoreFollowers = true
+    var isLoadingMoreFollowers = false
         
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Follower>!
-
+    
+    init(username: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.username = username
+        title = username
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,6 +96,7 @@ class FollowerListViewController: UIViewController {
 
     func getFollowers(username: String, page: Int) {
         showLoadingView()
+        isLoadingMoreFollowers = true
         NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
 
             guard let self = self else { return }
@@ -107,6 +117,7 @@ class FollowerListViewController: UIViewController {
             case .failure(let error):
                 self.presentGitHubAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "OK")
             }
+            self.isLoadingMoreFollowers = false
         }
     }
     
@@ -136,7 +147,6 @@ class FollowerListViewController: UIViewController {
     func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self        // delegate --> extension!
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search for a username"
         searchController.obscuresBackgroundDuringPresentation = false // change to transparent when searching
         navigationItem.searchController = searchController
@@ -152,7 +162,8 @@ extension FollowerListViewController: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
         
         if offsetY > contentHeight - height {
-            guard hasMoreFollowers else { return }
+            // if user has more followers and isn't already loading
+            guard hasMoreFollowers, !isLoadingMoreFollowers else { return }
             page += 1
             getFollowers(username: username, page: page)
         }
@@ -170,16 +181,16 @@ extension FollowerListViewController: UICollectionViewDelegate {
     
 }
 
-extension FollowerListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowerListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         // filter = text in searchBar and not empty
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filteredFollowers.removeAll()
+            updateData(followers)
+            return
+        }
         filteredFollowers = followers.filter { $0.login.lowercased().contains(filter.lowercased()) }
         updateData(filteredFollowers)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        updateData(followers)
     }
 }
 

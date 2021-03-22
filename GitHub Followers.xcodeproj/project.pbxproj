@@ -36,6 +36,8 @@
 		EF6F2C3025F689F700058310 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C2F25F689F700058310 /* FavoritesViewController.swift */; };
 		EF6F2C3525F691B400058310 /* GitHubButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C3425F691B400058310 /* GitHubButton.swift */; };
 		EF6F2C3825F6966400058310 /* GitHubTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6F2C3725F6966400058310 /* GitHubTextField.swift */; };
+		EFE19B7D2605F59C007C369A /* GitHubTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE19B7C2605F59C007C369A /* GitHubTabBarController.swift */; };
+		EFE19B8E26060AE7007C369A /* GitHubDataLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE19B8D26060AE7007C369A /* GitHubDataLoadingViewController.swift */; };
 		EFF5068325FB6401000FC250 /* GitHubEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */; };
 		EFF5068825FCB902000FC250 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5068725FCB902000FC250 /* UserInfoViewController.swift */; };
 		EFF5068B25FE1A47000FC250 /* GitHubUserHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF5068A25FE1A47000FC250 /* GitHubUserHeaderViewController.swift */; };
@@ -73,6 +75,8 @@
 		EF6F2C2F25F689F700058310 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		EF6F2C3425F691B400058310 /* GitHubButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubButton.swift; sourceTree = "<group>"; };
 		EF6F2C3725F6966400058310 /* GitHubTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubTextField.swift; sourceTree = "<group>"; };
+		EFE19B7C2605F59C007C369A /* GitHubTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubTabBarController.swift; sourceTree = "<group>"; };
+		EFE19B8D26060AE7007C369A /* GitHubDataLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubDataLoadingViewController.swift; sourceTree = "<group>"; };
 		EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubEmptyStateView.swift; sourceTree = "<group>"; };
 		EFF5068725FCB902000FC250 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		EFF5068A25FE1A47000FC250 /* GitHubUserHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserHeaderViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				EF6CA82A25F780D700101412 /* GitHubAlertViewController.swift */,
+				EFE19B8D26060AE7007C369A /* GitHubDataLoadingViewController.swift */,
 				EFF5068A25FE1A47000FC250 /* GitHubUserHeaderViewController.swift */,
 				EF4B3B7A25FF5CF9007C82F5 /* ItemInfo */,
 			);
@@ -120,14 +125,14 @@
 		EF6CA83825F7A70600101412 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				EF4B3B7525FF5C0E007C82F5 /* Button */,
+				EFE19B782605F4A0007C369A /* TabBarControllers */,
 				EF6CA85725FA27C600101412 /* Cells */,
 				EF4B3B7125FF5A99007C82F5 /* ViewControllers */,
-				EF6CA85925FA284400101412 /* GitHubAvatarImageView.swift */,
-				EF4B3B6B25FF4B73007C82F5 /* GitHubItemInfoView.swift */,
-				EF4B3B7525FF5C0E007C82F5 /* Button */,
-				EF6F2C3725F6966400058310 /* GitHubTextField.swift */,
+				EFE19B862605FB52007C369A /* ImageViews */,
+				EFE19B882605FB61007C369A /* Views */,
+				EFE19B812605F884007C369A /* TextFields */,
 				EFF5068D25FE26CB000FC250 /* Labels */,
-				EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -148,8 +153,8 @@
 				EF6F2C1425F6855E00058310 /* AppDelegate.swift */,
 				EF6F2C1625F6855E00058310 /* SceneDelegate.swift */,
 				EF6CA83425F7951E00101412 /* K.swift */,
-				EF6CA85025FA244200101412 /* GitHubError.swift */,
 				EF6CA85D25FA4C2600101412 /* UIHelper.swift */,
+				EF6CA85025FA244200101412 /* GitHubError.swift */,
 				EF6F2C1D25F6855E00058310 /* Assets.xcassets */,
 				EF6F2C1F25F6855E00058310 /* LaunchScreen.storyboard */,
 			);
@@ -160,8 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				EF6CA84125F7AB4200101412 /* Follower.swift */,
-				EF6CA84A25F7D15300101412 /* NetworkManager.swift */,
-				EF4B3B8425FFABD1007C82F5 /* PersistanceManager.swift */,
 				EF6CA84625F7AE5C00101412 /* User.swift */,
 			);
 			path = Model;
@@ -195,9 +198,10 @@
 		EF6F2C1325F6855E00058310 /* GitHub Followers */ = {
 			isa = PBXGroup;
 			children = (
+				EFE19B842605FA58007C369A /* Screens */,
+				EFE19B742605F1B1007C369A /* Managers */,
 				EF6CA84425F7ADD600101412 /* Model */,
 				EF6CA83B25F7A78800101412 /* Support */,
-				EF6F2C3225F689FD00058310 /* ViewController */,
 				EF6CA83825F7A70600101412 /* Custom Views */,
 				EF6CA83A25F7A71E00101412 /* Extensions */,
 				EF6F2C2225F6855E00058310 /* Info.plist */,
@@ -205,7 +209,32 @@
 			path = "GitHub Followers";
 			sourceTree = "<group>";
 		};
-		EF6F2C3225F689FD00058310 /* ViewController */ = {
+		EFE19B742605F1B1007C369A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EF6CA84A25F7D15300101412 /* NetworkManager.swift */,
+				EF4B3B8425FFABD1007C82F5 /* PersistanceManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EFE19B782605F4A0007C369A /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EFE19B7C2605F59C007C369A /* GitHubTabBarController.swift */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		EFE19B812605F884007C369A /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				EF6F2C3725F6966400058310 /* GitHubTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		EFE19B842605FA58007C369A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				EF6F2C2B25F689B800058310 /* SearchViewController.swift */,
@@ -213,7 +242,24 @@
 				EFF5068725FCB902000FC250 /* UserInfoViewController.swift */,
 				EF6F2C2F25F689F700058310 /* FavoritesViewController.swift */,
 			);
-			path = ViewController;
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		EFE19B862605FB52007C369A /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				EF6CA85925FA284400101412 /* GitHubAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		EFE19B882605FB61007C369A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF4B3B6B25FF4B73007C82F5 /* GitHubItemInfoView.swift */,
+				EFF5068225FB6401000FC250 /* GitHubEmptyStateView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EFF5068D25FE26CB000FC250 /* Labels */ = {
@@ -303,6 +349,7 @@
 				EFF5068825FCB902000FC250 /* UserInfoViewController.swift in Sources */,
 				EF6F2C3525F691B400058310 /* GitHubButton.swift in Sources */,
 				EF6CA82825F77FFD00101412 /* GitHubBodyLabel.swift in Sources */,
+				EFE19B7D2605F59C007C369A /* GitHubTabBarController.swift in Sources */,
 				EF6CA82F25F7865100101412 /* UIViewController+Ext.swift in Sources */,
 				EF6CA85A25FA284400101412 /* GitHubAvatarImageView.swift in Sources */,
 				EF6F2C3825F6966400058310 /* GitHubTextField.swift in Sources */,
@@ -319,6 +366,7 @@
 				EF6F2C3025F689F700058310 /* FavoritesViewController.swift in Sources */,
 				EF6CA85E25FA4C2600101412 /* UIHelper.swift in Sources */,
 				EF4B3B8125FF60F2007C82F5 /* String+Ext.swift in Sources */,
+				EFE19B8E26060AE7007C369A /* GitHubDataLoadingViewController.swift in Sources */,
 				EF6CA84B25F7D15300101412 /* NetworkManager.swift in Sources */,
 				EF6CA82525F77EAF00101412 /* GitHubTitleLabel.swift in Sources */,
 				EF6F2C1725F6855E00058310 /* SceneDelegate.swift in Sources */,
